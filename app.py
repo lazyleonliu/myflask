@@ -1,17 +1,22 @@
 from flask import Flask
 from flask import url_for
 
+
 app = Flask(__name__)
 
 # @app.route('/index')
 # @app.route('/')
 # def hello():
 #     return 'welcome to my flask'
+# 视图函数的名称是可以随意的
 
+@app.route('/home')
 @app.route('/')
+@app.route('/index')
 def hello():
-    return 'Hello'
+    return '<h1>Hello Totoro!</h1><img src="http://helloflask.com/totoro.gif">'
 
+# 可以把参数传入到视图函数中
 @app.route('/user/<name>')
 def user_page(name):
     return 'User:%s' % name
